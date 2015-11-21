@@ -5,13 +5,15 @@ var chalk = require('chalk');
 var program = require('commander');
 var os = require('os');
 var path = require('path');
+var debuglog = require('util').debuglog('autoapm');
 
 program.option('-p, --packages [packages_file]', 'the packages file. Needs to be a .json file')
        .parse(process.argv);
 
-var packagesFile = program.packages ||
+var packagesFile = path.resolve(program.packages) ||
                    path.join(os.homedir(), '.auto-apm.packages.json');
-console.log(packagesFile);
+debuglog("packagesFile" + packagesFile);
+
 if (!packagesFile.endsWith(".json"))
     throw "packages file must end with .json";
 

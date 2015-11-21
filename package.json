@@ -1,6 +1,6 @@
 {
   "name": "auto-apm",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Only install missing Atom packages and skip installed ones",
   "main": "autoapm.js",
   "scripts": {
