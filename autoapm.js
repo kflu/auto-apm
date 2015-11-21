@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var execSync = require('child_process').execSync;
 
 var chalk = require('chalk');

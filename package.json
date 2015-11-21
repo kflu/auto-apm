@@ -6,6 +6,7 @@
   "scripts": {
     "test": "mocha"
   },
+  "bin": "./autoapm.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kflu/auto-apm.git"
