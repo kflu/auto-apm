@@ -1,5 +1,7 @@
 # auto-apm
 
+    npm install -g auto-apm
+
 Only install missing Atom packages and skip installed ones.
 
 ```
