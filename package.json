@@ -1,0 +1,27 @@
+{
+  "name": "auto-apm",
+  "version": "1.0.0",
+  "description": "Only install missing Atom packages and skip installed ones",
+  "main": "autoapm.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kflu/auto-apm.git"
+  },
+  "keywords": [
+    "apm",
+    "atom"
+  ],
+  "author": "kflu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kflu/auto-apm/issues"
+  },
+  "homepage": "https://github.com/kflu/auto-apm#readme",
+  "dependencies": {
+    "chalk": "^1.1.1",
+    "commander": "^2.9.0"
+  }
+}
