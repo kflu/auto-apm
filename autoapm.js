@@ -7,7 +7,7 @@ var os = require('os');
 var path = require('path');
 var debuglog = require('util').debuglog('autoapm');
 
-program.option('-p, --packages [packages_file]', 'the packages file. Needs to be a .json file')
+program.option('-p, --packages [packages_file.json]', 'a .json file containing a list of packages to install. ')
        .parse(process.argv);
 
 var packagesFile = path.resolve(program.packages) ||
