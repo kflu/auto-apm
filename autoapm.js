@@ -7,17 +7,30 @@ var os = require('os');
 var path = require('path');
 var debuglog = require('util').debuglog('autoapm');
 
-program.option('-p, --packages [packages_file.json]', 'a .json file containing a list of packages to install. ')
+program.option('-i, --install [pkg1,pkg2,pkg3,...]', 'a list of packages to install')
+       .option('-p, --packages [packages_file.json]', 'a .json file containing a list of packages to install. ')
        .parse(process.argv);
 
-var packagesFile = path.resolve(program.packages) ||
-                   path.join(os.homedir(), '.auto-apm.packages.json');
-debuglog("packagesFile" + packagesFile);
+debuglog("install: " + program.install);
 
-if (!packagesFile.endsWith(".json"))
-    throw "packages file must end with .json";
+var packages;
 
-var packages = require(packagesFile);
+if (program.install) {
+    packages = program.install.split(",").map(function(x) { return x.trim(); });
+} else {
+    var packagesFile;
+    if (program.packages) {
+        packagesFile = path.resolve(program.packages);
+    } else {
+        packagesFile = path.join(os.homedir(), '.auto-apm.packages.json');
+    }
+
+    debuglog("packagesFile: " + packagesFile);
+    if (!packagesFile.endsWith(".json"))
+        throw "packages file must end with .json";
+
+    packages = require(packagesFile);
+}
 
 var stdout = execSync('apm ls -j', {encoding: 'utf8'});
 var installed = JSON.parse(stdout);

@@ -7,16 +7,22 @@ Usage: auto-apm [options]
 
 Options:
 
--h, --help                           output usage information
--p, --packages [packages_file.json]  a .json file containing a list of packages to install.
+  -h, --help                           output usage information
+  -i, --install [pkg1,pkg2,pkg3,...]   a list of packages to install
+  -p, --packages [packages_file.json]  a .json file containing a list of packages to install.
 ```
 
-If `packages_file.json` is omitted, it is looking for `~/.auto-apm.packages.json`. The file content should be
-a list of packages to install:
+If `-i` is specified, it must be followed by a list of packages to install, seperated by
+`,`:
 
-```
-['minimap', 'zen', 'autoflow']
-```
+    auto-apm -i zen,minimap
+
+If `-p` is specified, it must be followed by a JSON file containing a list of packages to
+install:
+
+    ['minimap', 'zen', 'autoflow']
+
+ If `packages_file.json` is omitted, it looks for `~/.auto-apm.packages.json`.
 
 When it runs, it looks like this:
 
